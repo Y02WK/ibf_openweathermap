@@ -28,7 +28,7 @@ public class WeatherService {
     // private Logger logger = Logger.getLogger(CacheService.class.getName());
 
     public WeatherDisplayModel getWeatherDisplayModel(String key) throws IOException {
-        JsonObject jsonData = getWeatherJson(key);
+        JsonObject jsonData = getWeatherJson(key.toUpperCase());
         return convertToModel(jsonData);
     }
 
