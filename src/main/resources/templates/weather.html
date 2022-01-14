@@ -16,13 +16,25 @@
   <body>
     <div class="container">
       <!-- process data -->
-      <div class="row d-flex justify-content-center">
-        <h1 data-th-text="${main.city}"></h1>
-        <h2 data-th-text="|${main.temperature}°C|"></h2>
+      <div class="row mt-3">
+        <h1
+          class="d-flex justify-content-center"
+          data-th-text="${main.city}"
+        ></h1>
+        <h2
+          class="text-info d-flex justify-content-center"
+          data-th-text="|${main.temperature}°C|"
+        ></h2>
         <div data-th-each="weather: ${readings}">
-          <img data-th-src="${weather.icon}" />
-          <span data-th-text="${weather.main}"></span>
-          <span data-th-text="${weather.description}"></span>
+          <img class="mx-auto d-flex" data-th-src="${weather.icon}" />
+          <p
+            class="text-warning fs-3 d-flex justify-content-center"
+            data-th-text="${weather.main}"
+          ></p>
+          <p
+            class="text-secondary d-flex justify-content-center"
+            data-th-text="${weather.description}"
+          ></p>
         </div>
       </div>
     </div>
