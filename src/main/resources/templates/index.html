@@ -21,14 +21,14 @@
           Check the weather in:
         </h1>
         <form method="post" action="/weather">
-          <div class="mx-auto justify-content-center mb-3 w-50">
+          <div class="mx-auto justify-content-center mb-3 w-25">
             <p
               class="text-danger fw-bold d-flex justify-content-center"
               data-th-if="${flash}"
               data-th-text="${flash}"
             ></p>
             <input
-              class="form-control d-flex"
+              class="form-control d-flex text-center"
               type="text"
               name="city"
               placeholder="Enter city here"
