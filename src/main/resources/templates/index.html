@@ -18,10 +18,15 @@
     <div class="container">
       <div class="row mt-4">
         <h1 class="mb-4 d-flex justify-content-center">
-          What is the weather at:
+          Check the weather in:
         </h1>
         <form method="post" action="/weather">
           <div class="mx-auto justify-content-center mb-3 w-50">
+            <p
+              class="text-danger fw-bold d-flex justify-content-center"
+              data-th-if="${flash}"
+              data-th-text="${flash}"
+            ></p>
             <input
               class="form-control d-flex"
               type="text"

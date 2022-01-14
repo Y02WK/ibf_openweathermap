@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -26,7 +27,7 @@ import jakarta.json.JsonReader;
 public class OpenWeatherMapService {
     private final String API_KEY = System.getenv(OWM_KEY);
 
-    public JsonObject useExchange(String city) throws IOException {
+    public JsonObject useExchange(String city) throws HttpClientErrorException, IOException {
         // build uri
         String url = UriComponentsBuilder
                 .fromUriString(OWM_URL)
@@ -39,6 +40,7 @@ public class OpenWeatherMapService {
         // send request to OpenWeatherMap API
         RequestEntity<Void> req = RequestEntity.get(url).build();
         RestTemplate restTemplate = new RestTemplate();
+
         ResponseEntity<String> resp = restTemplate.exchange(req, String.class);
 
         if (resp.getStatusCode() != HttpStatus.OK) {
