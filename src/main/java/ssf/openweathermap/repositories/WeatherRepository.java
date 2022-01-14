@@ -24,7 +24,7 @@ public class WeatherRepository {
     }
 
     public void save(String key, String value) {
-        template.opsForValue().set(key, value, 5, TimeUnit.MINUTES);
+        template.opsForValue().set(key, value, 60, TimeUnit.MINUTES);
     }
 
     public boolean hasKey(String key) {
