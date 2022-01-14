@@ -11,14 +11,15 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="fontcolor.css" />
     <title>OpenWeatherMap Demo</title>
   </head>
 
   <body>
     <div class="container">
       <div class="row mt-4">
-        <h1 class="mb-4 d-flex justify-content-center">
-          Check the weather in:
+        <h1 class="text-muted mb-4 d-flex justify-content-center">
+          Check the <span class="text-weather">&nbsp;weather&nbsp;</span> in:
         </h1>
         <form method="post" action="/weather">
           <div class="mx-auto justify-content-center mb-3 w-25">
@@ -36,7 +37,7 @@
             />
             <div class="d-flex mt-3 justify-content-center">
               <button
-                class="btn btn-primary justify-content-center"
+                class="btn btn-dark justify-content-center"
                 type="submit"
                 value="submit"
               >
