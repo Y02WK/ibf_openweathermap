@@ -2,6 +2,7 @@ package ssf.openweathermap.models;
 
 import java.util.logging.Logger;
 
+import jakarta.json.Json;
 import jakarta.json.JsonObject;
 
 /**
@@ -59,4 +60,14 @@ public class Weather {
         this.icon = "http://openweathermap.org/img/wn/%s@2x.png".formatted(icon);
     }
 
+    public JsonObject toJsonObject() {
+        JsonObject jsonObject = Json.createObjectBuilder()
+                .add("id", this.id)
+                .add("main", this.main)
+                .add("description", this.description)
+                .add("icon", this.icon)
+                .build();
+
+        return jsonObject;
+    }
 }

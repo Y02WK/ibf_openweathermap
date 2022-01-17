@@ -25,7 +25,7 @@ import jakarta.json.JsonReader;
 
 @Service
 public class OpenWeatherMapService {
-    private final String API_KEY = System.getenv(OWM_KEY).trim();
+    private final String API_KEY = System.getenv(OWM_KEY);
 
     public JsonObject useExchange(String city) throws HttpClientErrorException, IOException {
         // build uri

@@ -2,6 +2,10 @@ package ssf.openweathermap.models;
 
 import java.util.List;
 
+import jakarta.json.Json;
+import jakarta.json.JsonArrayBuilder;
+import jakarta.json.JsonObject;
+
 public class WeatherDisplayModel {
     private String city;
     private String temperature;
@@ -31,4 +35,19 @@ public class WeatherDisplayModel {
         this.temperature = temperature;
     }
 
+    public JsonObject toJson() {
+        JsonArrayBuilder weatherArray = Json.createArrayBuilder();
+
+        for (Weather w : this.weatherList) {
+            weatherArray.add(w.toJsonObject());
+        }
+
+        JsonObject jsonObject = Json.createObjectBuilder()
+                .add("city", this.city)
+                .add("temperature", this.temperature)
+                .add("weatherList", weatherArray)
+                .build();
+
+        return jsonObject;
+    }
 }
