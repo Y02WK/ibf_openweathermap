@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 
@@ -17,6 +18,7 @@ import ssf.openweathermap.models.WeatherDisplayModel;
 /**
  * WeatherServiceNonCaching
  */
+@Primary
 @Service
 public class WeatherServiceNonCaching implements WeatherService {
     @Autowired

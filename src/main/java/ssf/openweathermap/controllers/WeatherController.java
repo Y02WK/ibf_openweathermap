@@ -5,6 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
@@ -20,6 +21,7 @@ import ssf.openweathermap.models.WeatherDisplayModel;
 @RequestMapping("/weather")
 public class WeatherController {
     @Autowired
+    @Qualifier("CACHING_WEATHER_SERVICE")
     private WeatherService weatherService;
 
     private final Logger logger = Logger.getLogger(WeatherController.class.getName());
