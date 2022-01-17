@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.HttpClientErrorException;
 
+import ssf.openweathermap.interfaces.WeatherService;
 import ssf.openweathermap.models.WeatherDisplayModel;
-import ssf.openweathermap.services.WeatherService;
 
 @Controller
 @RequestMapping("/weather")
 public class WeatherController {
     @Autowired
-    private WeatherService cacheService;
+    private WeatherService weatherService;
 
     private final Logger logger = Logger.getLogger(WeatherController.class.getName());
 
@@ -29,7 +29,7 @@ public class WeatherController {
         final String cityName = form.getFirst("city").replaceAll(" ", "+");
         WeatherDisplayModel data;
         try {
-            data = cacheService.getWeatherDisplayModel(cityName);
+            data = weatherService.getWeatherDisplayModel(cityName);
             model.addAttribute("main", data);
             model.addAttribute("readings", data.getWeatherList());
             return "weather";
